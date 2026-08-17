@@ -5,15 +5,15 @@ import { getBooks } from "@/lib/api";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Danh Mục Tác Giả & Nhà Nghiên Cứu | Fahasa PickTomes Hub",
-  description: "Gặp gỡ các tác giả nổi tiếng, nhà nghiên cứu và dịch giả hàng đầu.",
+  title: "Authors & Visionary Scholars Gallery | PickTomes Vault",
+  description: "Meet the brilliant minds, essayists, and researchers behind our digital e-book library collection.",
 };
 
 export default async function AuthorsPage() {
   const books = await getBooks();
 
   return (
-    <main className="flex min-h-screen flex-col bg-[#F0F2F5]">
+    <main className="flex min-h-screen flex-col bg-[#F4F6F8]">
       <Navbar />
 
       <section className="pt-28 pb-20">

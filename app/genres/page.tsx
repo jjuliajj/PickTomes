@@ -5,15 +5,15 @@ import { getBooks } from "@/lib/api";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Danh Mục Thể Loại Sách | Fahasa PickTomes Hub",
-  description: "Khám phá các thể loại sách văn học, kinh tế, triết học và kỹ năng bán chạy nhất.",
+  title: "Book Categories & Disciplines | PickTomes Digital Vault",
+  description: "Browse curated e-books categorized by philosophy, non-fiction, fiction, and self-help classics.",
 };
 
 export default async function GenresPage() {
   const books = await getBooks();
 
   return (
-    <main className="flex min-h-screen flex-col bg-[#F0F2F5]">
+    <main className="flex min-h-screen flex-col bg-[#F4F6F8]">
       <Navbar />
 
       <section className="pt-28 pb-20">

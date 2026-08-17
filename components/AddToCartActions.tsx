@@ -18,23 +18,27 @@ export default function AddToCartActions({ bookId }: { bookId: string }) {
     <div className="flex flex-col sm:flex-row gap-3 pt-2">
       <button 
         onClick={handleAdd}
-        className="bg-charcoal hover:bg-coral text-paper-beige px-8 py-3.5 rounded-full font-manrope font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md flex items-center justify-center space-x-2.5 flex-1"
+        className={`px-8 py-3.5 rounded-full font-extrabold text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.25)] flex items-center justify-center space-x-2.5 flex-1 ${
+          added 
+            ? "bg-emerald-500 text-slate-950" 
+            : "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 active:scale-95"
+        }`}
       >
         {added ? (
           <>
-            <Check className="w-4 h-4 text-emerald-400" />
+            <Check className="w-4 h-4 text-slate-950 stroke-[3]" />
             <span>Added to Cart</span>
           </>
         ) : (
           <>
-            <ShoppingBag className="w-4 h-4" />
-            <span>Add to Cart</span>
+            <ShoppingBag className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <span>Add to Vault Cart</span>
           </>
         )}
       </button>
       
-      <button className="border border-charcoal/15 px-6 py-3.5 rounded-full font-manrope font-bold text-charcoal hover:bg-charcoal/5 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2">
-        <Heart className="w-4 h-4 text-coral" />
+      <button className="border border-slate-800 bg-slate-950 px-6 py-3.5 rounded-full font-bold text-slate-300 hover:bg-slate-800 hover:text-amber-400 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+        <Heart className="w-4 h-4 text-amber-400" />
         <span>Wishlist</span>
       </button>
     </div>

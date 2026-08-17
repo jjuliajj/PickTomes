@@ -83,27 +83,27 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   };
 
   return (
-    <main className="flex min-h-screen flex-col bg-paper-beige">
+    <main className="flex min-h-screen flex-col bg-[#090D16] font-sans text-slate-100">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
       <Navbar />
       
-      <section className="pt-28 pb-20">
+      <section className="pt-36 pb-20">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           {/* Back link */}
-          <Link href="/collections" className="inline-flex items-center text-xs font-manrope font-bold text-charcoal/50 hover:text-coral transition-colors mb-8 uppercase tracking-widest gap-2 group">
+          <Link href="/collections" className="inline-flex items-center text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors mb-8 uppercase tracking-widest gap-2 group">
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Collection
           </Link>
 
           {/* Main Book Detail Grid */}
-          <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-charcoal/10 shadow-sm grid md:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div className="bg-slate-900/80 rounded-3xl p-6 md:p-10 border border-slate-800 shadow-2xl grid md:grid-cols-12 gap-8 lg:gap-12 items-start backdrop-blur-xl">
             
             {/* Left: Compact 9:16 Book Cover */}
             <div className="md:col-span-5 flex justify-center">
-              <div className="relative aspect-[9/16] w-full max-w-[300px] bg-charcoal/5 rounded-2xl overflow-hidden shadow-lg border border-charcoal/10 group">
+              <div className="relative aspect-[9/16] w-full max-w-[300px] bg-slate-950 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(245,158,11,0.15)] border border-slate-800 group">
                 {book.cover_url ? (
                   <img
                     src={book.cover_url}
@@ -111,8 +111,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center bg-charcoal/10 text-charcoal/30 font-newsreader text-xl italic p-6 text-center">
-                    <BookOpen className="w-8 h-8 mb-2 opacity-40" />
+                  <div className="w-full h-full flex flex-col items-center justify-center bg-slate-950 text-slate-500 font-cormorant text-xl italic p-6 text-center">
+                    <BookOpen className="w-8 h-8 mb-2 opacity-40 text-amber-400" />
                     <span>{book.title}</span>
                   </div>
                 )}
@@ -122,30 +122,30 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
             {/* Right: Book Meta & Info */}
             <div className="md:col-span-7 space-y-6">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-coral/10 text-coral text-xs font-manrope font-bold uppercase tracking-widest rounded-full mb-3">
-                  <Tag className="w-3 h-3" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 text-amber-300 text-xs font-bold uppercase tracking-widest rounded-full mb-3 border border-amber-500/30">
+                  <Tag className="w-3 h-3 text-amber-400" />
                   {book.category}
                 </div>
                 
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-newsreader font-bold text-charcoal leading-tight mb-2">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-black text-white leading-tight mb-2">
                   {book.title}
                 </h1>
                 
-                <div className="flex items-center gap-2 text-sm text-charcoal/60 font-manrope">
-                  <User className="w-4 h-4 text-coral" />
-                  <span>By <strong className="text-charcoal">{book.author}</strong></span>
+                <div className="flex items-center gap-2 text-sm text-slate-400 font-medium">
+                  <User className="w-4 h-4 text-amber-400" />
+                  <span>By <strong className="text-slate-200">{book.author}</strong></span>
                 </div>
               </div>
 
               {/* Price & Delivery Badge */}
-              <div className="bg-paper-beige/60 p-4 rounded-2xl border border-charcoal/10 flex items-center justify-between">
+              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex items-center justify-between shadow-inner">
                 <div>
-                  <span className="text-[10px] font-manrope font-bold uppercase tracking-widest text-charcoal/40 block">Digital Edition</span>
-                  <span className="text-2xl font-newsreader font-bold text-coral">{book.price || "$0.50"}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 block">Digital EPUB Edition</span>
+                  <span className="text-3xl font-cormorant font-black text-amber-400">{book.price || "$0.50"}</span>
                 </div>
                 <div className="text-right">
-                  <span className="text-xs font-manrope font-semibold text-emerald-600 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full inline-flex items-center gap-1">
-                    <Layers className="w-3 h-3" /> Instant Download
+                  <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full inline-flex items-center gap-1">
+                    <Layers className="w-3 h-3" /> Instant EPUB Download
                   </span>
                 </div>
               </div>
@@ -165,3 +165,4 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     </main>
   );
 }
+

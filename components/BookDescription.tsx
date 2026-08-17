@@ -47,12 +47,12 @@ export default function BookDescription({ description }: { description: string }
 
   return (
     <div className="space-y-2">
-      <h3 className="text-xs font-manrope font-bold uppercase tracking-widest text-charcoal/40 flex items-center gap-1.5">
-        <Sparkles className="w-3.5 h-3.5 text-coral" /> Summary & Details
+      <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 flex items-center gap-1.5 font-cormorant text-sm">
+        <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Summary & Details
       </h3>
-      <div className="bg-paper-beige/40 p-4 rounded-2xl border border-charcoal/5 transition-all duration-300">
+      <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 transition-all duration-300 shadow-inner">
         <div 
-          className={`text-xs md:text-sm font-manrope text-charcoal/80 leading-relaxed whitespace-pre-line ${
+          className={`text-xs md:text-sm text-slate-300 leading-relaxed whitespace-pre-line font-medium ${
             !isExpanded && isLong ? "line-clamp-4" : ""
           }`}
         >
@@ -62,17 +62,17 @@ export default function BookDescription({ description }: { description: string }
         {isLong && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-3 text-xs font-manrope font-bold text-coral hover:text-charcoal transition-colors inline-flex items-center gap-1 focus:outline-none bg-coral/10 hover:bg-coral/20 px-3.5 py-1.5 rounded-full"
+            className="mt-3 text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors inline-flex items-center gap-1 focus:outline-none bg-amber-500/10 hover:bg-amber-500/20 px-3.5 py-1.5 rounded-full border border-amber-500/30 uppercase tracking-wider"
           >
             {isExpanded ? (
               <>
                 <span>Collapse Summary</span>
-                <ChevronUp className="w-3.5 h-3.5" />
+                <ChevronUp className="w-3.5 h-3.5 text-amber-400" />
               </>
             ) : (
               <>
                 <span>Read Full Introduction</span>
-                <ChevronDown className="w-3.5 h-3.5" />
+                <ChevronDown className="w-3.5 h-3.5 text-amber-400" />
               </>
             )}
           </button>

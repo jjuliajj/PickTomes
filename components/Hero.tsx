@@ -1,89 +1,111 @@
 import Link from "next/link";
-import { Flame, ArrowRight, ShieldCheck, Tag, Gift, Zap, Percent, Sparkles, BookOpen } from "lucide-react";
+import { Flame, ArrowRight, ShieldCheck, Tag, Gift, Zap, Percent, Sparkles, Star, ShoppingBag, BookOpen } from "lucide-react";
 
 export default function Hero() {
   const flashSaleBanners = [
-    { title: "Sách Văn Học Giảm Đến 50%", code: "FAHASA50", bg: "from-rose-600 to-[#C92127]" },
-    { title: "Sách Kinh Tế - Kỹ Năng Mới", code: "SKILL30", bg: "from-amber-600 to-rose-600" },
-    { title: "Tủ Sách Triết Học Monograph", code: "THINK25", bg: "from-red-700 to-amber-700" }
+    { title: "Literature & Classics Up To 50% Off", code: "VAULT50", bg: "bg-amber-50 text-amber-900 border-amber-200" },
+    { title: "Personal Growth & Philosophy", code: "SKILL30", bg: "bg-rose-50 text-rose-900 border-rose-200" },
   ];
 
   return (
-    <section className="pt-36 pb-12 bg-[#F0F2F5] font-sans">
-      <div className="container mx-auto px-4 sm:px-8 md:px-12 max-w-7xl space-y-8">
-        
-        {/* Main Fahasa Mega Flash Sale Banner Grid */}
-        <div className="bg-[#C92127] text-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl grid lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
-          
-          {/* Subtle Background Badges Overlay */}
-          <div className="absolute top-0 right-0 -mt-10 -mr-10 w-80 h-80 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+    <section className="pt-36 pb-14 bg-[#FBF9F5] font-sans relative overflow-hidden">
+      
+      {/* Background Accent Grid */}
+      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#0F172A_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
-          {/* Left Hero Column */}
-          <div className="lg:col-span-7 space-y-6 text-left relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/20 text-white text-xs font-bold rounded-full border border-white/30 uppercase tracking-widest backdrop-blur-xs">
-              <Flame className="w-4 h-4 text-amber-300 fill-amber-300" /> SIÊU MUA SẮM FAHASA BOOKSTORE
+      <div className="container mx-auto px-4 sm:px-8 md:px-12 max-w-7xl relative z-10">
+        
+        {/* Magazine Editorial Grid */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Column: Magazine Headline & Copy */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-amber-100/80 text-amber-900 text-xs font-bold rounded-full border border-amber-200/80 uppercase tracking-widest">
+              <Sparkles className="w-4 h-4 text-amber-600 fill-amber-600" /> ANCIENT WISDOM & DIGITAL VAULT
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight uppercase tracking-tight">
-              HỘI SÁCH ONLINE <br />
-              <span className="text-amber-300">ƯU ĐÃI LÊN ĐẾN 50%</span>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#0F172A] leading-[1.08] font-cormorant tracking-tight">
+              THE UNIVERSAL <br />
+              <span className="text-amber-700 italic font-semibold">
+                Rare Literature Hub
+              </span>
             </h1>
 
-            <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-xl font-medium">
-              Khám phá hàng ngàn đầu sách văn học, kinh tế, triết học và kỹ năng sống chính hãng. Nhận ngay mã giảm giá và tải về phiên bản EPUB Digital nhanh chóng.
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed max-w-xl font-medium">
+              Explore thousands of verified monographs, antique philosophy codices, classic fiction, and self-mastery archives. Download verified 100% DRM-free EPUB e-books instantly to any device.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
               <Link 
                 href="/collections" 
-                className="bg-white hover:bg-amber-300 text-[#C92127] hover:text-[#C92127] px-8 py-4 rounded-full font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center gap-2 group"
+                className="bg-[#0F172A] hover:bg-amber-600 text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center gap-2 group hover:scale-105"
               >
-                <span>Xem Ngay Tủ Sách Fahasa</span>
+                <span>Explore Scriptorium</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link 
                 href="/genres" 
-                className="bg-black/30 hover:bg-black/50 text-white px-6 py-4 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 border border-white/30 flex items-center gap-2"
+                className="bg-white hover:bg-slate-100 text-[#0F172A] px-6 py-4 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 border border-slate-300 flex items-center gap-2 shadow-xs"
               >
-                <Tag className="w-4 h-4 text-amber-300" />
-                <span>Khám Phá Thể Loại</span>
+                <Tag className="w-4 h-4 text-amber-700" />
+                <span>Explore Disciplines</span>
               </Link>
             </div>
 
-            <div className="pt-4 border-t border-white/20 flex flex-wrap items-center gap-6 text-xs text-white/90 font-bold">
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-amber-300" /> Sách Bản Quyền 100%
+            <div className="pt-6 border-t border-slate-200/80 flex flex-wrap items-center gap-6 text-xs text-slate-600 font-bold">
+              <span className="flex items-center gap-1.5 text-slate-800">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" /> 100% DRM-Free EPUB 3.0
               </span>
-              <span className="flex items-center gap-1.5">
-                <Zap className="w-4 h-4 text-amber-300" /> Tải EPUB Tức Thời
+              <span className="flex items-center gap-1.5 text-slate-800">
+                <Zap className="w-4 h-4 text-amber-600" /> Instant Cloud Download
               </span>
             </div>
           </div>
 
-          {/* Right Flash Sale Banner Widget */}
-          <div className="lg:col-span-5 bg-white text-slate-800 p-6 rounded-2xl border border-white/20 shadow-2xl space-y-4 relative z-10">
-            <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
-              <div className="flex items-center gap-2 text-sm font-black text-[#C92127] uppercase">
-                <Gift className="w-5 h-5 text-[#C92127]" /> MÃ GIẢM GIÁ ĐẶC BIỆT
+          {/* Right Column: Bestseller Spotlight Card */}
+          <div className="lg:col-span-5 relative">
+            <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-2xl space-y-5 relative overflow-hidden group hover:shadow-3xl transition-all">
+              
+              {/* Top Badge */}
+              <div className="flex justify-between items-center">
+                <span className="text-[10px] font-black uppercase tracking-widest text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
+                  ★ FEATURED SPOTLIGHT
+                </span>
+                <span className="text-xs font-bold text-slate-500">Vol. 01 Scriptorium</span>
               </div>
-              <span className="text-[10px] font-bold text-[#C92127] bg-rose-50 px-2 py-0.5 rounded border border-rose-200 uppercase">HÔM NAY</span>
-            </div>
 
-            <div className="space-y-3">
-              {flashSaleBanners.map((banner, idx) => (
-                <div key={idx} className={`bg-gradient-to-r ${banner.bg} text-white p-3.5 rounded-xl flex items-center justify-between shadow-xs`}>
-                  <div>
-                    <div className="text-xs font-black uppercase">{banner.title}</div>
-                    <div className="text-[10px] text-white/80 font-bold mt-0.5">Nhập mã: <span className="bg-black/30 px-1.5 py-0.5 rounded text-amber-300">{banner.code}</span></div>
-                  </div>
-                  <Percent className="w-6 h-6 text-amber-300 opacity-80" />
+              {/* Spotlight Book Image Banner */}
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 relative shadow-inner group-hover:scale-[1.01] transition-transform duration-500">
+                <img 
+                  src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" 
+                  alt="Featured Book Spotlight" 
+                  className="w-full h-full object-cover opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                  <span className="text-[10px] font-bold text-amber-300 uppercase tracking-widest">Philosophy & Monograph</span>
+                  <h3 className="text-2xl font-black font-cormorant leading-snug">The Midnight Library & Rare Meditations</h3>
                 </div>
-              ))}
-            </div>
+              </div>
 
-            <div className="pt-2 text-center text-xs text-slate-500 font-bold">
-              ⚡ Số lượng mã có hạn - Áp dụng tự động tại giỏ hàng!
+              {/* Active Coupons Grid */}
+              <div className="space-y-2 pt-1">
+                {flashSaleBanners.map((banner, idx) => (
+                  <div key={idx} className={`${banner.bg} border p-3 rounded-xl flex items-center justify-between shadow-xs`}>
+                    <div>
+                      <div className="text-xs font-black uppercase">{banner.title}</div>
+                      <div className="text-[10px] font-bold mt-0.5 opacity-80">Use Code: <span className="bg-[#0F172A] text-white px-1.5 py-0.5 rounded font-mono">{banner.code}</span></div>
+                    </div>
+                    <Percent className="w-5 h-5 text-amber-700 flex-shrink-0" />
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-2 flex items-center justify-between border-t border-slate-100 text-xs font-bold text-slate-600">
+                <span>⚡ Instant access guaranteed upon checkout</span>
+                <Link href="/collections" className="text-amber-700 hover:underline">Explore All &rarr;</Link>
+              </div>
+
             </div>
           </div>
 
@@ -93,3 +115,5 @@ export default function Hero() {
     </section>
   );
 }
+
+

@@ -1,32 +1,32 @@
 import BookCard from "./BookCard";
 import { getBooks } from "@/lib/api";
 import Link from "next/link";
-import { Flame, ArrowRight, Sparkles } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
 
 export default async function FeaturedBooks() {
   const books = await getBooks();
 
   return (
-    <section className="py-12 bg-[#F0F2F5]">
+    <section className="py-14 bg-[#FBF9F5] font-sans">
       <div className="container mx-auto px-4 sm:px-8 md:px-12 max-w-7xl space-y-8">
         
         {/* Header Section */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C92127]/10 text-[#C92127] text-xs font-bold rounded-full uppercase tracking-wider mb-2">
-              <Flame className="w-4 h-4 fill-[#C92127]" /> SÁCH BÁN CHẠY NHẤT FAHASA
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-900 text-xs font-bold rounded-full uppercase tracking-wider mb-2 border border-amber-200">
+              <Sparkles className="w-4 h-4 text-amber-700" /> BESTSELLING TOMES & MANUSCRIPTS
             </div>
-            <h2 className="text-2xl md:text-3xl font-black text-slate-800">
-              Xu Hướng & <span className="text-[#C92127]">Được Yêu Thích</span>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] font-cormorant">
+              Featured & <span className="text-amber-700 italic">Trending Manuscripts</span>
             </h2>
           </div>
 
           <Link
             href="/collections"
-            className="text-xs font-bold text-[#C92127] hover:text-[#A3181C] flex items-center gap-2 uppercase tracking-wider transition-colors bg-rose-50 px-4 py-2 rounded-full border border-rose-200"
+            className="text-xs font-black text-white hover:bg-amber-700 flex items-center gap-2 uppercase tracking-wider transition-all bg-[#0F172A] px-5 py-2.5 rounded-full shadow-md"
           >
-            <span>Xem Tất Cả ({books.length} Sách)</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>View Complete Vault ({books.length} Books)</span>
+            <ArrowRight className="w-4 h-4 text-amber-400" />
           </Link>
         </div>
 
@@ -41,3 +41,5 @@ export default async function FeaturedBooks() {
     </section>
   );
 }
+
+
