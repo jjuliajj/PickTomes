@@ -10,14 +10,23 @@ export const metadata: Metadata = {
   description: "Browse our complete digital library catalog of EPUB e-books and literature collections.",
 };
 
-export default async function CollectionsPage({ searchParams }: { searchParams: Promise<{ genre?: string; category?: string }> }) {
+export default async function CollectionsPage({ searchParams }: { searchParams: Promise<{ genre?: string; category?: string; search?: string }> }) {
   const params = await searchParams;
   const targetCategory = params.category || params.genre;
+  const targetSearch = params.search;
   const books = await getBooks();
   
-  const filteredBooks = targetCategory 
-    ? books.filter(b => b.category && b.category.toLowerCase() === targetCategory.toLowerCase())
-    : books;
+  let filteredBooks = books;
+
+  if (targetCategory) {
+    filteredBooks = filteredBooks.filter(b => b.category && b.category.toLowerCase() === targetCategory.toLowerCase());
+  }
+
+  if (targetSearch) {
+    const s = targetSearch.toLowerCase();
+    filteredBooks = filteredBooks.filter(b => b.title.toLowerCase().includes(s) || b.author.toLowerCase().includes(s));
+  }
+
 
   return (
     <main className="flex min-h-screen flex-col bg-[#FBF9F5] font-sans text-slate-900">
