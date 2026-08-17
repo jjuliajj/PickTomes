@@ -30,7 +30,7 @@ const FALLBACK_BOOKS: Book[] = BOOKS.map(b => ({
 
 export async function getBooks(): Promise<Book[]> {
   try {
-    const res = await fetch(`${API_BASE_URL}/books`, { next: { revalidate: 60 } });
+    const res = await fetch(`${API_BASE_URL}/books?site=picktomes`, { next: { revalidate: 60 } });
     if (!res.ok) throw new Error(`Failed to fetch books: ${res.status}`);
     const contentType = res.headers.get("content-type");
     if (!contentType || !contentType.includes("application/json")) {
@@ -43,6 +43,7 @@ export async function getBooks(): Promise<Book[]> {
     return FALLBACK_BOOKS;
   }
 }
+
 
 export async function getBook(id: string): Promise<Book | null> {
   try {
