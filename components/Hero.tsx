@@ -1,60 +1,89 @@
 import Link from "next/link";
-import { ArrowRight, Scroll, BookOpen, Feather } from "lucide-react";
+import { Flame, ArrowRight, ShieldCheck, Tag, Gift, Zap, Percent, Sparkles, BookOpen } from "lucide-react";
 
 export default function Hero() {
-  return (
-    <section className="pt-32 pb-16 bg-[#F4EBD9] text-[#2B1E16] font-serif">
-      <div className="container mx-auto px-4 sm:px-8 md:px-12 max-w-7xl">
-        
-        {/* Illuminated Scriptorium Parchment Box Container */}
-        <div className="bg-[#E6D7BC] rounded-3xl p-8 sm:p-14 border-4 border-[#8B0000]/40 shadow-2xl relative overflow-hidden grid lg:grid-cols-12 gap-10 items-center">
-          
-          {/* Hanging Crimson Ribbon Marker */}
-          <div className="absolute top-0 right-12 w-6 h-24 bg-[#8B0000] border-x border-b border-[#B8860B] z-20 shadow-md" />
+  const flashSaleBanners = [
+    { title: "Sách Văn Học Giảm Đến 50%", code: "FAHASA50", bg: "from-rose-600 to-[#C92127]" },
+    { title: "Sách Kinh Tế - Kỹ Năng Mới", code: "SKILL30", bg: "from-amber-600 to-rose-600" },
+    { title: "Tủ Sách Triết Học Monograph", code: "THINK25", bg: "from-red-700 to-amber-700" }
+  ];
 
-          {/* Left Column: Illuminated Drop-Cap Manuscript Headline */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#8B0000] text-[#F4EBD9] text-xs font-bold rounded-full border border-[#B8860B] uppercase tracking-widest font-manrope">
-              <Scroll className="w-4 h-4 text-[#B8860B]" /> Ancient Scriptorium Codex & Rare Manuscripts
+  return (
+    <section className="pt-36 pb-12 bg-[#F0F2F5] font-sans">
+      <div className="container mx-auto px-4 sm:px-8 md:px-12 max-w-7xl space-y-8">
+        
+        {/* Main Fahasa Mega Flash Sale Banner Grid */}
+        <div className="bg-[#C92127] text-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl grid lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
+          
+          {/* Subtle Background Badges Overlay */}
+          <div className="absolute top-0 right-0 -mt-10 -mr-10 w-80 h-80 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+
+          {/* Left Hero Column */}
+          <div className="lg:col-span-7 space-y-6 text-left relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/20 text-white text-xs font-bold rounded-full border border-white/30 uppercase tracking-widest backdrop-blur-xs">
+              <Flame className="w-4 h-4 text-amber-300 fill-amber-300" /> SIÊU MUA SẮM FAHASA BOOKSTORE
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-bold leading-[1.1] text-[#2B1E16]">
-              Preserving The <br />
-              <span className="text-[#8B0000] italic font-normal">Wisdom of Ancient Tomes</span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight uppercase tracking-tight">
+              HỘI SÁCH ONLINE <br />
+              <span className="text-amber-300">ƯU ĐÃI LÊN ĐẾN 50%</span>
             </h1>
 
-            <p className="text-sm sm:text-base text-[#2B1E16]/80 leading-relaxed max-w-xl font-manrope">
-              <span className="float-left text-5xl font-bold text-[#8B0000] leading-none pr-3 pt-1 font-serif">W</span>
-              elcome to PickTomes, an antique digital scriptorium dedicated to restoring classical literature, gothic manuscripts, and timeless philosophical tomes in DRM-free EPUB codex formats.
+            <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-xl font-medium">
+              Khám phá hàng ngàn đầu sách văn học, kinh tế, triết học và kỹ năng sống chính hãng. Nhận ngay mã giảm giá và tải về phiên bản EPUB Digital nhanh chóng.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-2 font-manrope">
+            <div className="flex flex-wrap gap-4 pt-2">
               <Link 
                 href="/collections" 
-                className="bg-[#8B0000] hover:bg-[#2B1E16] text-[#F4EBD9] px-9 py-4 rounded-full font-bold text-xs uppercase tracking-wider transition-all border border-[#B8860B] shadow-lg flex items-center gap-2.5 hover:scale-105"
+                className="bg-white hover:bg-amber-300 text-[#C92127] hover:text-[#C92127] px-8 py-4 rounded-full font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center gap-2 group"
               >
-                <span>Unseal Scriptorium Vaults</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Xem Ngay Tủ Sách Fahasa</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
+
+              <Link 
+                href="/genres" 
+                className="bg-black/30 hover:bg-black/50 text-white px-6 py-4 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 border border-white/30 flex items-center gap-2"
+              >
+                <Tag className="w-4 h-4 text-amber-300" />
+                <span>Khám Phá Thể Loại</span>
+              </Link>
+            </div>
+
+            <div className="pt-4 border-t border-white/20 flex flex-wrap items-center gap-6 text-xs text-white/90 font-bold">
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-amber-300" /> Sách Bản Quyền 100%
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Zap className="w-4 h-4 text-amber-300" /> Tải EPUB Tức Thời
+              </span>
             </div>
           </div>
 
-          {/* Right Side: Aged Leather Tome Display */}
-          <div className="lg:col-span-5 flex justify-center py-4">
-            <div className="w-64 aspect-[9/14] bg-[#2B1E16] text-[#F4EBD9] rounded-2xl border-4 border-[#B8860B] shadow-2xl p-6 flex flex-col justify-between text-center relative">
-              <span className="text-[9px] uppercase font-bold tracking-widest text-[#B8860B] bg-[#B8860B]/20 px-3 py-1 rounded-full border border-[#B8860B]/40 w-max mx-auto font-manrope">
-                CODEX VOL. I
-              </span>
-
-              <div className="my-auto space-y-3 py-4">
-                <Scroll className="w-12 h-12 mx-auto text-[#B8860B]" />
-                <h3 className="text-2xl font-bold text-white">Classical Tomes</h3>
-                <p className="text-xs text-[#F4EBD9]/70 font-manrope">Restored ancient wisdom & classical treatises.</p>
+          {/* Right Flash Sale Banner Widget */}
+          <div className="lg:col-span-5 bg-white text-slate-800 p-6 rounded-2xl border border-white/20 shadow-2xl space-y-4 relative z-10">
+            <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
+              <div className="flex items-center gap-2 text-sm font-black text-[#C92127] uppercase">
+                <Gift className="w-5 h-5 text-[#C92127]" /> MÃ GIẢM GIÁ ĐẶC BIỆT
               </div>
+              <span className="text-[10px] font-bold text-[#C92127] bg-rose-50 px-2 py-0.5 rounded border border-rose-200 uppercase">HÔM NAY</span>
+            </div>
 
-              <div className="pt-3 border-t border-[#B8860B]/30 text-xs font-bold text-[#B8860B] uppercase tracking-widest font-manrope">
-                Preserved Forever
-              </div>
+            <div className="space-y-3">
+              {flashSaleBanners.map((banner, idx) => (
+                <div key={idx} className={`bg-gradient-to-r ${banner.bg} text-white p-3.5 rounded-xl flex items-center justify-between shadow-xs`}>
+                  <div>
+                    <div className="text-xs font-black uppercase">{banner.title}</div>
+                    <div className="text-[10px] text-white/80 font-bold mt-0.5">Nhập mã: <span className="bg-black/30 px-1.5 py-0.5 rounded text-amber-300">{banner.code}</span></div>
+                  </div>
+                  <Percent className="w-6 h-6 text-amber-300 opacity-80" />
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-2 text-center text-xs text-slate-500 font-bold">
+              ⚡ Số lượng mã có hạn - Áp dụng tự động tại giỏ hàng!
             </div>
           </div>
 

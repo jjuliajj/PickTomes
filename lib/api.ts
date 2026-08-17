@@ -1,3 +1,5 @@
+import { BOOKS } from "./data";
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 
   (process.env.NODE_ENV === 'development' ? 'http://localhost:5000/api' : 'https://logbook-snowy-gamma.vercel.app/api');
 
@@ -8,16 +10,23 @@ export interface Book {
   description: string;
   category: string;
   price: string;
-  details: {
-    Publisher?: string;
-    Pages?: string;
-    Language?: string;
-    Format?: string;
-  };
-  file_url: string;
-  cover_url: string;
+  details?: Record<string, string>;
+  file_url?: string;
+  cover_url?: string;
   created_at?: string;
 }
+
+const FALLBACK_BOOKS: Book[] = BOOKS.map(b => ({
+  id: b.id,
+  title: b.title,
+  author: b.author,
+  description: b.description,
+  category: b.category,
+  price: b.price,
+  cover_url: b.image,
+  file_url: "",
+  details: b.details
+}));
 
 export async function getBooks(): Promise<Book[]> {
   try {
@@ -25,28 +34,30 @@ export async function getBooks(): Promise<Book[]> {
     if (!res.ok) throw new Error(`Failed to fetch books: ${res.status}`);
     const contentType = res.headers.get("content-type");
     if (!contentType || !contentType.includes("application/json")) {
-      console.error("API response is not JSON:", contentType);
-      return [];
+      return FALLBACK_BOOKS;
     }
-    return await res.json();
+    const data = await res.json();
+    return data && data.length > 0 ? data : FALLBACK_BOOKS;
   } catch (error) {
     console.error("getBooks error:", error);
-    return [];
+    return FALLBACK_BOOKS;
   }
 }
 
 export async function getBook(id: string): Promise<Book | null> {
   try {
     const res = await fetch(`${API_BASE_URL}/books/${id}`, { next: { revalidate: 60 } });
-    if (!res.ok) return null;
+    if (!res.ok) {
+      return FALLBACK_BOOKS.find(b => b.id === id) || null;
+    }
     const contentType = res.headers.get("content-type");
     if (!contentType || !contentType.includes("application/json")) {
-      console.error("API response is not JSON:", contentType);
-      return null;
+      return FALLBACK_BOOKS.find(b => b.id === id) || null;
     }
-    return await res.json();
+    const data = await res.json();
+    return data || FALLBACK_BOOKS.find(b => b.id === id) || null;
   } catch (error) {
     console.error("getBook error:", error);
-    return null;
+    return FALLBACK_BOOKS.find(b => b.id === id) || null;
   }
 }
